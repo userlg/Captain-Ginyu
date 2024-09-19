@@ -3,7 +3,7 @@ import os
 from colorama import Fore
 
 
-def show_folders() -> list:
+def get_folders() -> list:
     root = os.getcwd()
 
     content = os.listdir(root)
@@ -16,14 +16,11 @@ def show_folders() -> list:
 
     return files
 
-'''
-    if len(files) > 0:
-        i = 1
 
-        for file in files:
-            os.rename(file, "new_name_" + str(i))
-            i += 1
-        print(Fore.GREEN + "Operation Successfull")
+def show_folders(folders: list) -> int:
+    if len(folders) > 0:
+        for folder in folders:
+            print(Fore.YELLOW + folder + "\n")
     else:
         print(Fore.RED + "No folders detected")
-'''
+    return len(folders)
