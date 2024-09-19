@@ -8,6 +8,7 @@ init()
 
 if __name__ == '__main__':
     print(Fore.GREEN + 'Working')
-    u.show_folders()
+    folders = u.show_folders()
+    print(folders)
     t.sleep(10)
     

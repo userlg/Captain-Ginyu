@@ -3,7 +3,7 @@ import os
 from colorama import Fore
 
 
-def show_folders() -> None:
+def show_folders() -> list:
     root = os.getcwd()
 
     content = os.listdir(root)
@@ -14,6 +14,9 @@ def show_folders() -> None:
         if os.path.isdir(file) and not file.startswith("."):
             files.append(file)
 
+    return files
+
+'''
     if len(files) > 0:
         i = 1
 
@@ -23,3 +26,4 @@ def show_folders() -> None:
         print(Fore.GREEN + "Operation Successfull")
     else:
         print(Fore.RED + "No folders detected")
+'''
