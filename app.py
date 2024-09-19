@@ -1,14 +1,9 @@
-
-
-from colorama import init, Fore
-
-from src import utils as u
-
-init()
+from src import utils as u, quick_sort as q
 
 if __name__ == "__main__":
-    print(Fore.GREEN + "\n\t\t\t Welcome to Ginyu Script \n")
-    print(Fore.GREEN + "\t <<---Working -- We recommend go for a cup of coffe :) --->>")
+    u.phrases()
     folders = u.get_folders()
-    u.show_folders(folders)
-    u.temporize(5)
+    new_directories = u.order_customizer(folders, len(folders) - 1)
+    u.show_folders(new_directories)
+    u.procesing_files(new_directories)
+    u.temporizer(3)
