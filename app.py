@@ -1,4 +1,4 @@
-import time as t
+
 
 from colorama import init, Fore
 
@@ -10,5 +10,5 @@ if __name__ == "__main__":
     print(Fore.GREEN + "\n\t\t\t Welcome to Ginyu Script \n")
     print(Fore.GREEN + "\t <<---Working -- We recommend go for a cup of coffe :) --->>")
     folders = u.get_folders()
-    print(folders)
-    t.sleep(10)
+    u.show_folders(folders)
+    u.temporize(5)
