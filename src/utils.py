@@ -32,7 +32,6 @@ def show_folders(folders: list) -> int:
     else:
         print(Fore.RED + "No se detectaron directorios")
     print("\n")
-    t.sleep(4)
     return len(folders)
 
 
@@ -81,8 +80,6 @@ def phrases() -> bool:
         + "\t <<---Asi que recomendamos hacer la siguiente actividad para aprovechar su tiempo --->>"
     )
     print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + "\n")
-
-    t.sleep(2)
 
     return True
 

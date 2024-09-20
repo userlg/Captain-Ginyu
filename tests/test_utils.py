@@ -66,15 +66,16 @@ def test_procesing_files_maxillary_properly() -> None:
 
     os.makedirs(newpath)
 
-    fmax = open(maxillary,"+w")
+    fmax = open(maxillary, "+w")
     fmax.close()
 
     response = u.procesing_files([newpath])
 
     os.remove("Maxillary0.stl")
     os.rmdir(newpath)
-    
+
     assert response == True
+
 
 def test_procesing_files_mandibular_properly() -> None:
 
@@ -83,15 +84,12 @@ def test_procesing_files_mandibular_properly() -> None:
 
     os.makedirs(newpath)
 
-    fmax = open(mandibular,"+w")
+    fmax = open(mandibular, "+w")
     fmax.close()
 
     response = u.procesing_files([newpath])
 
     os.remove("Mandibular0.stl")
     os.rmdir(newpath)
-    
+
     assert response == True
-    
-    
-    
