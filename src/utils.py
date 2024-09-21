@@ -6,6 +6,8 @@ from colorama import Fore, init
 
 from src import quick_sort as q
 
+from src import quick_sort as q
+
 import random as r
 
 init()
@@ -25,14 +27,20 @@ def get_folders() -> list:
 
 
 def show_folders(folders: list) -> int:
-    if len(folders) > 0:
+
+    size = len(folders)
+
+    if size > 0:
         print(Fore.YELLOW + "\t\t<<--- Lista de Directorios a procesar --->>\n")
+        print(
+            Fore.YELLOW + "\t\t<<--- Cantidad de Elementos: " + str(size) + " --->>\n"
+        )
         for folder in folders:
             print(Fore.YELLOW + "\t" + folder)
     else:
         print(Fore.RED + "No se detectaron directorios")
     print("\n")
-    return len(folders)
+    return size
 
 
 def temporizer(seconds: int) -> int:
@@ -68,6 +76,10 @@ def phrases() -> bool:
         "Colocar un rollo de papel nuevo en el baño",
         "Escribir tu carta a Santa Claus",
         "Participar en la encuesta para ilegalizar el regueton",
+        "Regar las margaritas del jardin",
+        "Promulgar leyes antiveganos",
+        "Redactar un poema dedicado a la persona mas cercana",
+        "Buscar evidencia de la existencia del monstruo del lago ness",
     ]
 
     print(Fore.GREEN + "\n\t\t\t\t Bienvenido al capitan Ginyu Script \n")
@@ -98,29 +110,91 @@ def order_customizer(folders: list[str], limit: int) -> list:
     folders_ordered = []
 
     malocclusion = "Malocclusion"
+    exists_malocclusion = False
 
     for folder in folders:
         if malocclusion in folder:
             folders_ordered.append(folder)
+            exists_malocclusion = True
             break
 
-    i = 1
+    if exists_malocclusion:
+        index = 1
+    else:
+        index = indetify_index(folders)
 
-    while i <= limit:
+    j = 1
+
+    while j <= limit:
         for folder in folders:
-            if folder.endswith("Subsetup" + str(i)):
+            if folder.endswith("Subsetup" + str(index)):
+                index += 1
                 folders_ordered.append(folder)
                 break
-        i += 1
+        j += 1
 
     return folders_ordered
+
+
+def indetify_index2(folders: list[str]) -> int:
+
+    invalids_values = [
+        "Subsetup10",
+        "Subsetup11",
+        "Subsetup12",
+        "Subsetup13",
+        "Subsetup14",
+        "Subsetup15",
+        "Subsetup16",
+        "Subsetup17",
+        "Subsetup18",
+        "Subsetup19",
+    ]
+
+    show_folders(folders[0])
+
+    print(folders[0].endswith("Subsetup1"))
+
+    t.sleep(4)
+
+    if "Subsetup1" in folders[0] and folders[0] not in invalids_values:
+        index = 1
+        print("if")
+    else:
+        print("else")
+        index = 2
+        for folder in folders:
+            if "Subsetup" + str(index) in folder:
+                break
+            index += 1
+    print(index)
+    return index
+
+
+def indetify_index(folders: list[str]) -> int:
+
+    index = 1
+    for folder in folders:
+        if "Subsetup" + str(index) in folder:
+            print(folder.endswith("Subsetup" + str(index)))
+            break
+        index += 1
+    print(index)
+    t.sleep(4)
+    return index
 
 
 def procesing_files(folders: list[str]) -> bool:
 
     root = os.getcwd()
 
-    i = 0
+    print(folders)
+
+    if "Malocclusion" in folders[0]:
+        index = 0
+    else:
+        index = indetify_index(folders)
+
     if len(folders) > 0:
         for folder in folders:
             dir = root + "/" + folder + "/"
@@ -132,7 +206,7 @@ def procesing_files(folders: list[str]) -> bool:
                     and file.startswith("Maxillary")
                     and not "backup" in file
                 ):
-                    new_name_maxillary = "Maxillary" + str(i) + ".stl"
+                    new_name_maxillary = "Maxillary" + str(index) + ".stl"
                     os.rename(dir + file, root + "/" + new_name_maxillary)
 
                 if (
@@ -140,10 +214,10 @@ def procesing_files(folders: list[str]) -> bool:
                     and file.startswith("Mandibular")
                     and not "backup" in file
                 ):
-                    new_name_mandibular = "Mandibular" + str(i) + ".stl"
+                    new_name_mandibular = "Mandibular" + str(index) + ".stl"
                     os.rename(dir + file, root + "/" + new_name_mandibular)
 
-            i += 1
+            index += 1
         return True
     else:
         return False
