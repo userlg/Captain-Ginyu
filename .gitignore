@@ -8,3 +8,5 @@ app.spec
 .pytest_cache
 .coverage
 tmp/
+coverage_re/
+test_app.py

@@ -4,9 +4,9 @@ import time as t
 
 from colorama import Fore, init
 
-from src import quick_sort as q
+from src import ordering as q
 
-from src import quick_sort as q
+from src import ordering as q
 
 import random as r
 
@@ -80,6 +80,10 @@ def phrases() -> bool:
         "Promulgar leyes antiveganos",
         "Redactar un poema dedicado a la persona mas cercana",
         "Buscar evidencia de la existencia del monstruo del lago ness",
+        "Dar una vuelta al mundo",
+        "Meditar con los monjes tibetanos sobre el significado de la vida",
+        "Infitrarse en la comunidad vegana",
+        "Dar click en me gusta en la publicacion de iphone es mejor que android",
     ]
 
     print(Fore.GREEN + "\n\t\t\t\t Bienvenido al capitan Ginyu Script \n")
@@ -136,67 +140,31 @@ def order_customizer(folders: list[str], limit: int) -> list:
     return folders_ordered
 
 
-def indetify_index2(folders: list[str]) -> int:
-
-    invalids_values = [
-        "Subsetup10",
-        "Subsetup11",
-        "Subsetup12",
-        "Subsetup13",
-        "Subsetup14",
-        "Subsetup15",
-        "Subsetup16",
-        "Subsetup17",
-        "Subsetup18",
-        "Subsetup19",
-    ]
-
-    show_folders(folders[0])
-
-    print(folders[0].endswith("Subsetup1"))
-
-    t.sleep(4)
-
-    if "Subsetup1" in folders[0] and folders[0] not in invalids_values:
-        index = 1
-        print("if")
-    else:
-        print("else")
-        index = 2
-        for folder in folders:
-            if "Subsetup" + str(index) in folder:
-                break
-            index += 1
-    print(index)
-    return index
-
-
 def indetify_index(folders: list[str]) -> int:
-
     index = 1
-    for folder in folders:
-        if "Subsetup" + str(index) in folder:
-            print(folder.endswith("Subsetup" + str(index)))
-            break
+    limit = len(folders)
+    while index < limit:
+        for folder in folders:
+            size = len(folder)
+            if folder[size - 1] == str(index) and folder[size - 2] == "p":
+                return index
         index += 1
-    print(index)
-    t.sleep(4)
-    return index
 
 
 def procesing_files(folders: list[str]) -> bool:
 
-    root = os.getcwd()
-
-    print(folders)
-
-    if "Malocclusion" in folders[0]:
-        index = 0
+    if len(folders) == 0:
+        return False
     else:
-        index = indetify_index(folders)
+        root = os.getcwd()
 
-    if len(folders) > 0:
+        if "Malocclusion" in folders[0]:
+            index = 0
+        else:
+            index = indetify_index(folders)
+
         for folder in folders:
+
             dir = root + "/" + folder + "/"
             files = os.listdir(dir)
 
@@ -208,7 +176,6 @@ def procesing_files(folders: list[str]) -> bool:
                 ):
                     new_name_maxillary = "Maxillary" + str(index) + ".stl"
                     os.rename(dir + file, root + "/" + new_name_maxillary)
-
                 if (
                     file.endswith(".stl")
                     and file.startswith("Mandibular")
@@ -216,8 +183,5 @@ def procesing_files(folders: list[str]) -> bool:
                 ):
                     new_name_mandibular = "Mandibular" + str(index) + ".stl"
                     os.rename(dir + file, root + "/" + new_name_mandibular)
-
             index += 1
         return True
-    else:
-        return False

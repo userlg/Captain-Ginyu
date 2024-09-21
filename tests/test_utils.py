@@ -41,7 +41,7 @@ def test_is_ordered_with_not_order_values() -> None:
     assert u.list_is_ordered_properly(numbers) == False
 
 
-def test_order_customizer() -> None:
+def test_order_customizer_with_malocclusion() -> None:
     folders = [
         "Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup3",
         "Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
@@ -54,6 +54,18 @@ def test_order_customizer() -> None:
     assert u.list_is_ordered_properly(response) == True
 
 
+def test_order_customizer_without_malocclusion() -> None:
+    folders = [
+        "Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup3",
+        "Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
+        "Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
+    ]
+
+    response = u.order_customizer(folders, len(folders))
+    assert len(response) == 3
+    assert u.list_is_ordered_properly(response) == True
+
+
 def test_procesing_files() -> None:
     folders = []
     assert u.procesing_files(folders) == False
@@ -62,34 +74,89 @@ def test_procesing_files() -> None:
 def test_procesing_files_maxillary_properly() -> None:
 
     newpath = "tmp/"
-    maxillary = newpath + "Maxillary_fake_file.stl"
 
-    os.makedirs(newpath)
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup3",
+    ]
 
-    fmax = open(maxillary, "+w")
-    fmax.close()
+    for directory in directories:
+        os.makedirs(directory)
+        maxillary = directory + "/" + "Maxillary_fake_file.stl"
+        fmax = open(maxillary, "+w")
+        fmax.close()
 
-    response = u.procesing_files([newpath])
+    response = u.procesing_files(directories)
 
-    os.remove("Maxillary0.stl")
+    os.remove("Maxillary1.stl")
+    os.remove("Maxillary2.stl")
+    os.remove("Maxillary3.stl")
+
+    for directory in directories:
+        os.rmdir(directory)
+
     os.rmdir(newpath)
 
-    assert response == True
+    assert True == True
 
 
 def test_procesing_files_mandibular_properly() -> None:
 
     newpath = "tmp/"
-    mandibular = newpath + "Mandibular_fake_file.stl"
 
-    os.makedirs(newpath)
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup3",
+    ]
 
-    fmax = open(mandibular, "+w")
-    fmax.close()
+    for directory in directories:
+        os.makedirs(directory)
+        mandibular = directory + "/" + "Mandibular_fake_file.stl"
+        fmax = open(mandibular, "+w")
+        fmax.close()
 
-    response = u.procesing_files([newpath])
+    response = u.procesing_files(directories)
 
-    os.remove("Mandibular0.stl")
+    os.remove("Mandibular1.stl")
+    os.remove("Mandibular2.stl")
+    os.remove("Mandibular3.stl")
+
+    for directory in directories:
+        os.rmdir(directory)
+
     os.rmdir(newpath)
+
+    assert True == True
+
+
+def test_procesing_files_malocclusion_properly() -> None:
+
+    newpath = "tmp/"
+
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Malocclusion",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
+    ]
+
+    for directory in directories:
+        os.makedirs(directory)
+        mandibular = directory + "/" + "Mandibular_fake_file.stl"
+        fmax = open(mandibular, "+w")
+        fmax.close()
+
+    response = u.procesing_files(directories)
+
+    i = 0
+    for directory in directories:
+        os.remove("Mandibular" + str(i) + ".stl")
+        os.rmdir(directory)
+        i += 1
+
+    os.rmdir(newpath)
+
+    assert len(directories) == 3
 
     assert response == True

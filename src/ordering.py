@@ -1,3 +1,12 @@
+def ordering_bubble(folders) -> bool:
+    limit = len(folders)
+    for i in range(limit - 1):
+        for j in range(limit - 1 - i):
+            if folders[j] > folders[j + 1]:
+                folders[j], folders[j + 1] = folders[j + 1], folders[j]
+    return True
+
+
 def quicksort(folders: list, left, right) -> None:
     if left < right:
         index_partition = partition(folders, left, right)
