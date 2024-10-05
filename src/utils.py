@@ -109,6 +109,16 @@ def list_is_ordered_properly(folders: list) -> bool:
     return ordered
 
 
+def extract_digits(number: int) -> list:
+    numbers = []
+    while number != 0:
+        digit = int(number % 10)
+        numbers.append(digit)
+        number = int(number / 10)
+    numbers.reverse()
+    return numbers
+
+
 def order_customizer(folders: list[str], limit: int) -> list:
 
     folders_ordered = []
@@ -142,14 +152,22 @@ def order_customizer(folders: list[str], limit: int) -> list:
 
 def identify_index(folders: list[str]) -> int:
     index = 1
-    limit = len(folders)
-    print("Elementos: " + str(limit))
-    show_folders(folders)
-    while index <= 100:
+    numbers = []
+    while index < 100:
         for folder in folders:
             size = len(folder)
-            if folder[size - 1] == str(index) and folder[size - 2] == "p":
-                return index
+            if index < 10:
+                if folder[size - 1] == str(index) and folder[size - 2] == "p":
+                    return index
+            if index > 9 and index < 100:
+                numbers = extract_digits(index)
+                if (
+                    folder[size - 2] == str(numbers[0])
+                    and folder[size - 1] == str(numbers[1])
+                    and folder[size - 3] == "p"
+                ):
+                    return index
+
         index += 1
     return index
 

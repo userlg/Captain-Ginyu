@@ -71,7 +71,7 @@ def test_procesing_files_with_zero_directories() -> None:
     assert u.procesing_files(folders) == False
 
 
-def test_identify_index_works_properly() -> None:
+def test_identify_index_works_properly_when_index_less_than_nine() -> None:
     directories = [
         "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
         "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
@@ -80,11 +80,24 @@ def test_identify_index_works_properly() -> None:
     assert (u.identify_index(directories)) == 1
 
 
+def test_identify_index_works_properly_when_index_greater_than_nine() -> None:
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup15",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup16",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup17",
+    ]
+    assert (u.identify_index(directories)) == 15
+
+
+def test_extract_digits_works_properly() -> None:
+    assert u.extract_digits(23) == [2, 3]
+
+
 def test_identify_index_not_found_index_code_101_return() -> None:
     directories = [
-        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup150",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup100",
     ]
-    assert (u.identify_index(directories)) == 101
+    assert (u.identify_index(directories)) == 100
 
 
 def test_procesing_files_maxillary_properly() -> None:
