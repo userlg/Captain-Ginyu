@@ -125,7 +125,7 @@ def order_customizer(folders: list[str], limit: int) -> list:
     if exists_malocclusion:
         index = 1
     else:
-        index = indetify_index(folders)
+        index = identify_index(folders)
 
     j = 1
 
@@ -140,15 +140,18 @@ def order_customizer(folders: list[str], limit: int) -> list:
     return folders_ordered
 
 
-def indetify_index(folders: list[str]) -> int:
+def identify_index(folders: list[str]) -> int:
     index = 1
     limit = len(folders)
-    while index < limit:
+    print("Elementos: " + str(limit))
+    show_folders(folders)
+    while index <= 100:
         for folder in folders:
             size = len(folder)
             if folder[size - 1] == str(index) and folder[size - 2] == "p":
                 return index
         index += 1
+    return index
 
 
 def procesing_files(folders: list[str]) -> bool:
@@ -161,7 +164,7 @@ def procesing_files(folders: list[str]) -> bool:
         if "Malocclusion" in folders[0]:
             index = 0
         else:
-            index = indetify_index(folders)
+            index = identify_index(folders)
 
         for folder in folders:
 

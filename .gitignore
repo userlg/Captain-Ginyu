@@ -1,6 +1,6 @@
 dist/
 build/
-__pycache__/
+**/__pycache__/**/
 .pytest_cache
 .venv/
 Field/
@@ -9,4 +9,3 @@ app.spec
 .coverage
 tmp/
 coverage_re/
-test_app.py

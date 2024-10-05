@@ -66,9 +66,25 @@ def test_order_customizer_without_malocclusion() -> None:
     assert u.list_is_ordered_properly(response) == True
 
 
-def test_procesing_files() -> None:
+def test_procesing_files_with_zero_directories() -> None:
     folders = []
     assert u.procesing_files(folders) == False
+
+
+def test_identify_index_works_properly() -> None:
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup1",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup2",
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup3",
+    ]
+    assert (u.identify_index(directories)) == 1
+
+
+def test_identify_index_not_found_index_code_101_return() -> None:
+    directories = [
+        "tmp/Francini Jimenez Alpizar_Francini Jimenez Alpizar_9-9-2024_10-43-03_Subsetup150",
+    ]
+    assert (u.identify_index(directories)) == 101
 
 
 def test_procesing_files_maxillary_properly() -> None:

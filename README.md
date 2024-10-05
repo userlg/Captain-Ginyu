@@ -36,7 +36,7 @@ pytest --cov --cov-report=html:coverage_re
 -------------------------------------------
 # Screenshots
 + Running all tests
-![ Tests](captures/tests.png)
+![ Tests](captures/tests_report.png)
 + Double click to execute the script
 ![ C1 ](captures/c1.png)
 + Script executing
