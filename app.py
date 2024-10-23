@@ -5,12 +5,12 @@ import time as t
 
 def main() -> None:
     u.phrases()
-    t.sleep(2)
+    t.sleep(1)
     folders = u.get_folders()
     new_directories = u.order_customizer(folders, len(folders))
     u.show_folders(new_directories)
     u.procesing_files(new_directories)
-    u.temporizer(4)
+    u.temporizer(3)
 
 
 if __name__ == "__main__":
