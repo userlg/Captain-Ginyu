@@ -31,6 +31,10 @@ def test_phrases_works_properly() -> None:
     assert u.phrases() == True
 
 
+def test_get_emojis_works_properly() -> None:
+    assert type(u.get_emojis()) == str
+
+
 def test_is_ordered_with_order_values() -> None:
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     assert u.list_is_ordered_properly(numbers) == True

@@ -13,6 +13,24 @@ import random as r
 init()
 
 
+def get_emojis() -> str:
+    emojis = [
+        "\U0001F602",
+        "\U0001F605",
+        "\U0001F60D",
+        "\U0001F92D",
+        "\U0001F92B",
+        "\U0001F914",
+        "\U0001F62A",
+        "\U0001F922",
+        "\U0001F976",
+        "\U0001F92F",
+        "\U0001F60D",
+    ]
+
+    return r.choice(emojis)
+
+
 def get_folders() -> list:
     root = os.getcwd()
 
@@ -95,7 +113,7 @@ def phrases() -> bool:
         Fore.GREEN
         + "\t <<---Asi que recomendamos hacer la siguiente actividad para aprovechar su tiempo --->>"
     )
-    print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + "\n")
+    print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + " " + get_emojis() + "\n")
 
     return True
 
