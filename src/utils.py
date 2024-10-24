@@ -10,6 +10,8 @@ from src import ordering as q
 
 import random as r
 
+import emoji as e
+
 init()
 
 
@@ -56,7 +58,7 @@ def show_folders(folders: list) -> int:
         for folder in folders:
             print(Fore.YELLOW + "\t" + folder)
     else:
-        print(Fore.RED + "No se detectaron directorios")
+        print(Fore.RED + "\tNo se detectaron directorios")
     print("\n")
     return size
 
@@ -113,7 +115,10 @@ def phrases() -> bool:
         Fore.GREEN
         + "\t <<---Asi que recomendamos hacer la siguiente actividad para aprovechar su tiempo --->>"
     )
-    print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + " " + get_emojis() + "\n")
+
+    emoji = e.emojize(get_emojis())
+
+    print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + " " + emoji + "\n")
 
     return True
 
