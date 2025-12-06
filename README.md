@@ -1,46 +1,48 @@
-# **Captain Ginyu Script** 
-![Static Badge](https://img.shields.io/badge/Python-F6D346)
-![Static Badge](https://img.shields.io/badge/Script-blue)
------------------------------------------------
-### Es un script para organizar archivos con un formato stl en un estructura de carpetas establecidas
-----------------------------------------------
-# Requirments
+# 🐺 Captain Ginyu Script
 
-+ Python 3.12
+Organiza automáticamente archivos **.stl** en una estructura de carpetas definida.  
+Automatiza, ordena y agiliza tu flujo de trabajo con un solo clic.
 
-+ Pip 
+---
 
-+ Pyinstaller
+## 📦 Tecnologías y herramientas
 
-+ Pytest
+![Static Badge](https://img.shields.io/badge/Python-3.12-F6D346?logo=python&logoColor=white)
+![Static Badge](https://img.shields.io/badge/Script-Automation-blue)
+![Static Badge](https://img.shields.io/badge/Windows-Supported-00A4EF?logo=windows&logoColor=white)
+![Static Badge](https://img.shields.io/badge/Tests-Pytest-0A9EDC?logo=pytest&logoColor=white)
 
-+ Windows Operative System
----------------------------------------------
-# Usage
+---
+
+## 🧩 ¿Qué hace este script?
+
+Este proyecto permite **organizar archivos STL** dentro de una estructura predefinida de carpetas, facilitando la gestión, el orden y el acceso a tus archivos 3D.  
+Ideal para flujos de trabajo de impresión 3D, modelado y proyectos CAD.
+
+---
+
+## ⚙️ Requisitos
+
+- Python **3.12**
+- Pip
+- PyInstaller
+- Pytest
+- Windows OS
+
+---
+
+## 🚀 Uso
+
 ```bash
-# Install all packages
-
+# Instalar dependencias
 pip install -r requirements.txt
 
-# Generate the file .exe
-
+# Generar ejecutable (.exe)
 pyinstaller --onefile --icon=favicon.ico app.py
 
-# Run the tests
+# Ejecutar tests con cobertura
 pytest --cov -v
 
-#Generate Report Coverage
+# Generar reporte de cobertura en HTML
 pytest --cov --cov-report=html:coverage_re
-
 ```
--------------------------------------------
-# Screenshots
-+ Running all tests
-![ Tests](captures/tests_report.png)
-+ Double click to execute the script
-![ C1 ](captures/c1.png)
-+ Script executing
-![ C2 ](captures/c2.png)
-------------------------------------------
-### Created by
-## [ userlg ](https://github.com/userlg)

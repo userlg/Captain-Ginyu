@@ -4,7 +4,7 @@ import time as t
 
 from colorama import Fore, init
 
-from src import ordering as q
+from src.phrases_list import PHRASES
 
 from src import ordering as q
 
@@ -17,17 +17,17 @@ init()
 
 def get_emojis() -> str:
     emojis = [
-        "\U0001F602",
-        "\U0001F605",
-        "\U0001F60D",
-        "\U0001F92D",
-        "\U0001F92B",
-        "\U0001F914",
-        "\U0001F62A",
-        "\U0001F922",
-        "\U0001F976",
-        "\U0001F92F",
-        "\U0001F60D",
+        "\U0001f602",
+        "\U0001f605",
+        "\U0001f60d",
+        "\U0001f92d",
+        "\U0001f92b",
+        "\U0001f914",
+        "\U0001f62a",
+        "\U0001f922",
+        "\U0001f976",
+        "\U0001f92f",
+        "\U0001f60d",
     ]
 
     return r.choice(emojis)
@@ -77,35 +77,6 @@ def temporizer(seconds: int) -> int:
 
 def phrases() -> bool:
 
-    phrases = [
-        "Ir por una taza de cafe",
-        "Jugar dos partidas de Fortnite",
-        "Enviar fax a Maduro",
-        "Escribir en tu diario personal",
-        "Retocar tu maquillaje",
-        "Caminar dos cuadras y volver",
-        "Jugar un par de partidas de DBD",
-        "Ver una pelicula masculina como Titanic",
-        "Ir a comer un helado",
-        "Leer tu libro favorito",
-        "Darle un beso a la persona mas cercana",
-        "Comer una hamburguesa vegana",
-        "Buscar en google como hacer del numero dos correctamente",
-        "Preparar una parrillada con todo",
-        "Escribir todas las groserias conocidas en papel",
-        "Colocar un rollo de papel nuevo en el baño",
-        "Escribir tu carta a Santa Claus",
-        "Participar en la encuesta para ilegalizar el regueton",
-        "Regar las margaritas del jardin",
-        "Promulgar leyes antiveganos",
-        "Redactar un poema dedicado a la persona mas cercana",
-        "Buscar evidencia de la existencia del monstruo del lago ness",
-        "Dar una vuelta al mundo",
-        "Meditar con los monjes tibetanos sobre el significado de la vida",
-        "Infitrarse en la comunidad vegana",
-        "Dar click en me gusta en la publicacion de iphone es mejor que android",
-    ]
-
     print(Fore.GREEN + "\n\t\t\t\t Bienvenido al capitan Ginyu Script \n")
     print(
         Fore.GREEN
@@ -118,7 +89,7 @@ def phrases() -> bool:
 
     emoji = e.emojize(get_emojis())
 
-    print(Fore.MAGENTA + "\n\t" + r.choice(phrases) + " " + emoji + "\n")
+    print(Fore.MAGENTA + "\n\t" + r.choice(PHRASES) + " " + emoji + "\n")
 
     return True
 
