@@ -90,7 +90,7 @@ Al trabajar con archivos STL de tratamientos ortodónticos, es común tener múl
 1. **Clonar o descargar el repositorio**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/userlg/Captain-Ginyu
    cd captain-ginyu
    ```
 

@@ -90,7 +90,7 @@ When working with orthodontic treatment STL files, it's common to have multiple 
 1. **Clone or download the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/userlg/Captain-Ginyu
    cd captain-ginyu
    ```
 
