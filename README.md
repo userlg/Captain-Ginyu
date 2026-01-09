@@ -347,6 +347,23 @@ The executable will be generated in `dist/ginyu.exe`
 
 ---
 
+### Code Quality (Ruff)
+
+The project uses **Ruff** for linting and formatting.
+
+```bash
+# Check for errors
+ruff check .
+
+# Fix errors automatically
+ruff check --fix .
+
+# Format code
+ruff format .
+```
+
+---
+
 ## 📈 Future Roadmap
 
 - [ ] Graphical User Interface (GUI) with Tkinter/PyQt
