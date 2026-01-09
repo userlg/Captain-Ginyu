@@ -412,16 +412,6 @@ Developed with ❤️ to optimize workflows in digital orthodontics.
 
 ---
 
-## 📞 Support
-
-Problems or questions?
-
-- 📧 Email: [your-email@example.com]
-- 🐛 Issues: [GitHub Issues](../../issues)
-- 📖 Documentation: See [walkthrough.md](docs/walkthrough.md)
-
----
-
 <div align="center">
 
 ### 🌟 If this project was useful to you, give it a star!

@@ -412,16 +412,6 @@ Desarrollado con ❤️ para optimizar flujos de trabajo en ortodoncia digital.
 
 ---
 
-## 📞 Soporte
-
-¿Problemas o preguntas?
-
-- 📧 Email: [tu-email@ejemplo.com]
-- 🐛 Issues: [GitHub Issues](../../issues)
-- 📖 Documentación: Ver [walkthrough.md](docs/walkthrough.md)
-
----
-
 <div align="center">
 
 ### 🌟 Si este proyecto te fue útil, ¡dale una estrella!
